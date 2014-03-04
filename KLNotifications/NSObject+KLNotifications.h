@@ -15,6 +15,7 @@
 - (void)observeNotificationsForObject:(id)object names:(NSString *)name, ... NS_REQUIRES_NIL_TERMINATION;
 - (void)observeWithSelector:(SEL)selector notificationsNames:(NSString *)name, ... NS_REQUIRES_NIL_TERMINATION;
 - (void)observeWithSelector:(SEL)selector notificationsForObject:(id)object names:(NSString *)name, ... NS_REQUIRES_NIL_TERMINATION;
+- (void)addObserver:(id)object selector:(SEL)selector names:(NSString *)name, ... NS_REQUIRES_NIL_TERMINATION;
 - (void)stopObservingNotificationsNames:(NSString *)name, ... NS_REQUIRES_NIL_TERMINATION;
 - (void)stopObservingNotificationsForObject:(id)object names:(NSString *)name, ... NS_REQUIRES_NIL_TERMINATION;
 - (void)stopObservingNotifications;

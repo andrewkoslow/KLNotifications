@@ -109,6 +109,25 @@
 }
 
 
+- (void)addObserver:(id)object selector:(SEL)selector names:(NSString *)name, ... {
+    va_list args;
+    va_start(args, name);
+    
+    [self addObserver:object selector:selector name:name namesVA:args];
+    
+    va_end(args);
+}
+
+
+- (void)addObserver:(id)object selector:(SEL)selector name:(NSString *)name namesVA:(va_list)names {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    
+    for (; name != nil; name = va_arg(names, NSString *)) {
+        [center addObserver:object selector:selector name:name object:self];
+    }
+}
+
+
 - (void)stopObservingNotificationsNames:(NSString *)name, ... {
     va_list names;
     va_start(names, name);
